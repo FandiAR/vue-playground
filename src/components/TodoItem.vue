@@ -2,7 +2,7 @@
   <div class="playground-container">
     <div class="todo-item" v-bind:class="{'is-complete':propsTodo.completed}">
       <p>
-        <input type="checkbox" v-on:change="isCompleted" />
+        <input type="checkbox" v-on:change="isCompleted" v-model="propsTodo.completed" checked="propsTodo.completed === true" />
         {{ propsTodo.title }}
         <button @click="$emit('del-todo', propsTodo.id)" class="del">x</button>
       </p>
@@ -16,7 +16,7 @@ export default {
   props: ["propsTodo"],
   methods: {
     isCompleted() {
-      this.propsTodo.completed = !this.propsTodo.completed;
+      this.propsTodo.completed = true;
     }
   }
 };
